@@ -12,14 +12,16 @@ public class MobileBankApiTestV1 {
         // Given - When - Then
         // Предусловия
         given()
-                .baseUri("http://localhost:9999/api/v1")
+                .baseUri("https://postman-echo.com")
+                .body("some data")
                 // Выполняемые действия
                 .when()
-                .get("/demo/accounts")
+//                .get("/demo/accounts")
                 // Проверки
+                .post("/post")
                 .then()
                 .statusCode(200)
-        .contentType(ContentType.JSON)
+//        .contentType(ContentType.JSON)
                 .body("", hasSize(3))
                 .body("[0].currency", equalTo("RUB"))
                 .body("[0].balance", greaterThanOrEqualTo(0));
