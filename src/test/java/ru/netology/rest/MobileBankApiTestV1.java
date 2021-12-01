@@ -10,21 +10,17 @@ public class MobileBankApiTestV1 {
     @Test
     void shouldReturnDemoAccounts() {
         // Given - When - Then
-        // Предусловия
+// Предусловия
         given()
                 .baseUri("https://postman-echo.com")
-                .body("some data")
-                // Выполняемые действия
+                .body("some data") // отправляемые данные (заголовки и query можно выставлять аналогично)
+// Выполняемые действия
                 .when()
-//                .get("/demo/accounts")
-                // Проверки
                 .post("/post")
+// Проверки
                 .then()
                 .statusCode(200)
-//        .contentType(ContentType.JSON)
-                .body("", hasSize(3))
-                .body("[0].currency", equalTo("RUB"))
-                .body("[0].balance", greaterThanOrEqualTo(0));
+                .body("data", equalTo("some data"));
 
     }
 }
